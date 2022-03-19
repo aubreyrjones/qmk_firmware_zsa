@@ -76,6 +76,9 @@ typedef struct {
 #    define ACTION_TAP_DANCE_FN_ADVANCED(user_fn_on_each_tap, user_fn_on_dance_finished, user_fn_on_dance_reset) \
         { .fn = {user_fn_on_each_tap, user_fn_on_dance_finished, user_fn_on_dance_reset}, .user_data = NULL, }
 
+#    define ACTION_TAP_DANCE_FN_FULL(user_fn_on_each_tap, user_fn_on_dance_finished, user_fn_on_dance_reset, userdata) \
+        { .fn = {user_fn_on_each_tap, user_fn_on_dance_finished, user_fn_on_dance_reset}, .user_data = userdata, }        
+
 #    define ACTION_TAP_DANCE_FN_ADVANCED_TIME(user_fn_on_each_tap, user_fn_on_dance_finished, user_fn_on_dance_reset, tap_specific_tapping_term) \
         { .fn = {user_fn_on_each_tap, user_fn_on_dance_finished, user_fn_on_dance_reset}, .user_data = NULL, .custom_tapping_term = tap_specific_tapping_term, }
 
