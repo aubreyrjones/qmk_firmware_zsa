@@ -11,6 +11,7 @@ with open("keymap.c", 'r', encoding="utf-8-sig") as f:
 
 pairs = re.findall(case_match, keyfile)
 
+print('#include "symshift.h"')
 print("symshift_pair symshifts[] = {")
 print(",\n".join([f"\tSYMSHIFT({pair[0]}, {pair[1]})" for pair in pairs]))
 print("};\n")

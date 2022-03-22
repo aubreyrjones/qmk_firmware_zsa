@@ -47,6 +47,7 @@ void symshift_finished(qk_tap_dance_state_t *state, void *user_data) {
 void symshift_reset(qk_tap_dance_state_t *state, void *user_data) {
     symshift_pair *pair = (symshift_pair *) user_data;
 
+    wait_ms(10);
     switch (pair->step) {
         case SINGLE_TAP: unregister_code16(pair->tapKey); break;
         case SINGLE_HOLD: unregister_code16(pair->holdKey); break;
