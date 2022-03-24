@@ -88,15 +88,16 @@ enum tap_dance_codes {
   DANCE_29,
   DANCE_30,
   DANCE_31,
+  DANCE_32,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_ergodox_pretty(
-    KC_ESCAPE,      KC_EXLM,        KC_AT,          KC_HASH,        KC_DLR,         KC_PERC,        KC_CAPSLOCK,                                    KC_EQUAL,       KC_CIRC,        TD(DANCE_15),   TD(DANCE_16),   ST_MACRO_0,     ST_MACRO_1,     KC_TRANSPARENT,
-    KC_TAB,         TD(DANCE_0),    TD(DANCE_1),    TD(DANCE_2),    TD(DANCE_3),    TD(DANCE_4),    KC_1,                                           ST_MACRO_2,     TD(DANCE_17),   TD(DANCE_18),   TD(DANCE_19),   KC_O,           TD(DANCE_20),   ST_MACRO_3,
-    KC_LCTRL,       TD(DANCE_5),    TD(DANCE_6),    TD(DANCE_7),    TD(DANCE_8),    TD(DANCE_9),                                                                    TD(DANCE_21),   TD(DANCE_22),   TD(DANCE_23),   KC_L,           TD(DANCE_24),   KC_ENTER,
-    KC_LSHIFT,      TD(DANCE_10),   TD(DANCE_11),   TD(DANCE_12),   TD(DANCE_13),   TD(DANCE_14),   KC_0,                                           TT(1),          TD(DANCE_25),   TD(DANCE_26),   TD(DANCE_27),   KC_DOT,         TD(DANCE_28),   KC_RSHIFT,
-    TT(2),          KC_LGUI,        KC_LALT,        KC_TRANSPARENT, TT(1),                                                                                                          KC_SPACE,       KC_MINUS,       KC_SCOLON,      TD(DANCE_29),   TT(2),
+    KC_ESCAPE,      KC_EXLM,        KC_AT,          KC_HASH,        KC_DLR,         KC_PERC,        KC_CAPSLOCK,                                    KC_TRANSPARENT, TD(DANCE_15),   TD(DANCE_16),   TD(DANCE_17),   ST_MACRO_0,     ST_MACRO_1,     KC_TRANSPARENT,
+    KC_TAB,         TD(DANCE_0),    TD(DANCE_1),    TD(DANCE_2),    TD(DANCE_3),    TD(DANCE_4),    KC_1,                                           ST_MACRO_2,     TD(DANCE_18),   TD(DANCE_19),   TD(DANCE_20),   KC_O,           TD(DANCE_21),   ST_MACRO_3,
+    KC_LCTRL,       TD(DANCE_5),    TD(DANCE_6),    TD(DANCE_7),    TD(DANCE_8),    TD(DANCE_9),                                                                    TD(DANCE_22),   TD(DANCE_23),   TD(DANCE_24),   KC_L,           TD(DANCE_25),   KC_ENTER,
+    KC_LSHIFT,      TD(DANCE_10),   TD(DANCE_11),   TD(DANCE_12),   TD(DANCE_13),   TD(DANCE_14),   KC_0,                                           TT(1),          TD(DANCE_26),   TD(DANCE_27),   TD(DANCE_28),   KC_DOT,         TD(DANCE_29),   KC_RSHIFT,
+    TT(2),          KC_LGUI,        KC_LALT,        KC_TRANSPARENT, TT(1),                                                                                                          KC_SPACE,       KC_MINUS,       KC_SCOLON,      TD(DANCE_30),   TT(2),
                                                                                                     KC_DELETE,      TT(3),          KC_RALT,        TG(3),
                                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT,
                                                                                     KC_BSPACE,      KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_UNDS
@@ -114,7 +115,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [2] = LAYOUT_ergodox_pretty(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_SLASH,       KC_ASTR,        KC_MINUS,       KC_TRANSPARENT,
     KC_TRANSPARENT, KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_7,           KC_8,           KC_9,           KC_PLUS,        KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_6,           KC_7,           KC_8,           KC_9,           KC_A,                                                                           KC_TRANSPARENT, TD(DANCE_30),   TD(DANCE_31),   KC_6,           KC_PLUS,        KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_6,           KC_7,           KC_8,           KC_9,           KC_A,                                                                           KC_TRANSPARENT, TD(DANCE_31),   TD(DANCE_32),   KC_6,           KC_PLUS,        KC_TRANSPARENT,
     KC_TRANSPARENT, KC_B,           KC_C,           KC_D,           KC_E,           KC_F,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_1,           KC_2,           KC_3,           KC_ENTER,       KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_0,           KC_0,           KC_DOT,         KC_ENTER,       KC_TRANSPARENT,
                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
@@ -145,6 +146,7 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
     [0] = { {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152} },
 
     [1] = { {0,0,0}, {219,124,251}, {0,0,0}, {219,124,251}, {0,0,0}, {219,255,255}, {219,255,255}, {131,255,255}, {219,255,255}, {0,0,0}, {219,255,255}, {131,255,255}, {131,255,255}, {131,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {219,255,255}, {219,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {219,124,251}, {219,124,251}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {74,255,255}, {74,255,255}, {74,255,255}, {0,0,0}, {0,0,0}, {74,255,255}, {74,255,255}, {74,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
+
     [2] = { {0,0,0}, {0,0,0}, {0,245,245}, {0,245,245}, {0,245,245}, {0,0,0}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,0,0}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,0,0}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
 
     [3] = { {0,0,0}, {154,149,216}, {154,149,216}, {0,0,0}, {0,0,0}, {0,0,0}, {154,149,216}, {154,149,216}, {0,0,0}, {0,0,0}, {154,149,216}, {154,149,216}, {154,149,216}, {0,0,0}, {0,0,0}, {154,149,216}, {0,0,0}, {0,0,0}, {0,0,0}, {154,149,216}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
@@ -265,6 +267,8 @@ uint32_t layer_state_set_user(uint32_t state) {
   }
   return state;
 };
+
+
 #include "symshift.h"
 symshift_pair symshifts[] = {
 	SYMSHIFT(KC_Q, KC_1),
@@ -282,6 +286,7 @@ symshift_pair symshifts[] = {
 	SYMSHIFT(KC_C, KC_D),
 	SYMSHIFT(KC_V, KC_E),
 	SYMSHIFT(KC_B, KC_F),
+	SYMSHIFT(KC_CIRC, KC_PIPE),
 	SYMSHIFT(KC_AMPR, KC_LABK),
 	SYMSHIFT(KC_TILD, KC_RABK),
 	SYMSHIFT(KC_Y, KC_EQUAL),
@@ -333,5 +338,6 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 	SYMSHIFT_FN(28),
 	SYMSHIFT_FN(29),
 	SYMSHIFT_FN(30),
-	SYMSHIFT_FN(31)
+	SYMSHIFT_FN(31),
+	SYMSHIFT_FN(32)
 };
