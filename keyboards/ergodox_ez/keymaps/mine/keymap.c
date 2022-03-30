@@ -96,17 +96,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_ESCAPE,      KC_EXLM,        KC_AT,          KC_HASH,        KC_DLR,         KC_PERC,        KC_CAPSLOCK,                                    KC_TRANSPARENT, TD(DANCE_15),   TD(DANCE_16),   TD(DANCE_17),   ST_MACRO_0,     ST_MACRO_1,     KC_TRANSPARENT,
     KC_TAB,         TD(DANCE_0),    TD(DANCE_1),    TD(DANCE_2),    TD(DANCE_3),    TD(DANCE_4),    KC_1,                                           ST_MACRO_2,     TD(DANCE_18),   TD(DANCE_19),   TD(DANCE_20),   KC_O,           TD(DANCE_21),   ST_MACRO_3,
     KC_LCTRL,       TD(DANCE_5),    TD(DANCE_6),    TD(DANCE_7),    TD(DANCE_8),    TD(DANCE_9),                                                                    TD(DANCE_22),   TD(DANCE_23),   TD(DANCE_24),   KC_L,           TD(DANCE_25),   KC_ENTER,
-    KC_LSHIFT,      TD(DANCE_10),   TD(DANCE_11),   TD(DANCE_12),   TD(DANCE_13),   TD(DANCE_14),   KC_0,                                           TT(1),          TD(DANCE_26),   TD(DANCE_27),   TD(DANCE_28),   KC_DOT,         TD(DANCE_29),   KC_RSHIFT,
-    TT(2),          KC_LGUI,        KC_LALT,        KC_TRANSPARENT, TT(1),                                                                                                          KC_SPACE,       KC_MINUS,       KC_SCOLON,      TD(DANCE_30),   TT(2),
-                                                                                                    KC_DELETE,      TT(3),          KC_RALT,        TG(3),
+    KC_LSHIFT,      TD(DANCE_10),   TD(DANCE_11),   TD(DANCE_12),   TD(DANCE_13),   TD(DANCE_14),   KC_0,                                           KC_TRANSPARENT, TD(DANCE_26),   TD(DANCE_27),   TD(DANCE_28),   KC_DOT,         TD(DANCE_29),   KC_RSHIFT,
+    TT(2),          KC_LGUI,        KC_LALT,        KC_TRANSPARENT, TT(1),                                                                                                          KC_UNDS,        KC_MINUS,       KC_SCOLON,      TD(DANCE_30),   TT(2),
+                                                                                                    KC_ENTER,       TT(3),          KC_RALT,        TG(3),
                                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT,
-                                                                                    KC_BSPACE,      KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_UNDS
+                                                                                    KC_BSPACE,      LCTL(KC_BSPACE),KC_DELETE,      TT(1),          KC_TRANSPARENT, KC_SPACE
   ),
   [1] = LAYOUT_ergodox_pretty(
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_PSCREEN,     KC_F11,         KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, LCTL(KC_PGUP),  KC_TRANSPARENT, LCTL(KC_PGDOWN),KC_TRANSPARENT, KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_PSCREEN,     KC_F11,         LCTL(KC_S),                                     KC_TRANSPARENT, KC_TRANSPARENT, LCTL(KC_PGUP),  KC_TRANSPARENT, LCTL(KC_PGDOWN),KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, LCTL(KC_R),     LCTL(KC_T),     LCTL(KC_C),                                     KC_TRANSPARENT, KC_PGUP,        KC_HOME,        KC_UP,          KC_END,         KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_MS_BTN2,     KC_MS_BTN3,     KC_MS_BTN1,     KC_TRANSPARENT,                                                                 KC_PGDOWN,      KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, LSFT(KC_MS_BTN2),LSFT(KC_MS_BTN3),LSFT(KC_MS_BTN1),KC_TRANSPARENT, LCTL(KC_V),                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_TRANSPARENT, LSFT(KC_MS_BTN2),LSFT(KC_MS_BTN3),LSFT(KC_MS_BTN1),KC_TRANSPARENT, LCTL(KC_V),                                     KC_TRANSPARENT, KC_TRANSPARENT, LCTL(KC_LEFT),  KC_TRANSPARENT, LCTL(KC_RIGHT), KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
                                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT,
@@ -145,8 +145,7 @@ void keyboard_post_init_user(void) {
 const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
     [0] = { {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152}, {165,211,152} },
 
-    [1] = { {0,0,0}, {219,124,251}, {0,0,0}, {219,124,251}, {0,0,0}, {219,255,255}, {219,255,255}, {131,255,255}, {219,255,255}, {0,0,0}, {219,255,255}, {131,255,255}, {131,255,255}, {131,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {219,255,255}, {219,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {219,124,251}, {219,124,251}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {74,255,255}, {74,255,255}, {74,255,255}, {0,0,0}, {0,0,0}, {74,255,255}, {74,255,255}, {74,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
-
+    [1] = { {0,0,0}, {219,124,251}, {0,0,0}, {219,124,251}, {0,0,0}, {219,255,255}, {219,255,255}, {74,255,255}, {219,255,255}, {0,0,0}, {219,255,255}, {74,255,255}, {74,255,255}, {74,255,255}, {0,0,0}, {0,0,0}, {219,124,251}, {0,0,0}, {219,124,251}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {219,255,255}, {219,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {219,124,251}, {219,124,251}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {74,255,255}, {74,255,255}, {74,255,255}, {0,0,0}, {0,0,0}, {74,255,255}, {74,255,255}, {74,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
     [2] = { {0,0,0}, {0,0,0}, {0,245,245}, {0,245,245}, {0,245,245}, {0,0,0}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,0,0}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,0,0}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
 
     [3] = { {0,0,0}, {154,149,216}, {154,149,216}, {0,0,0}, {0,0,0}, {0,0,0}, {154,149,216}, {154,149,216}, {0,0,0}, {0,0,0}, {154,149,216}, {154,149,216}, {154,149,216}, {0,0,0}, {0,0,0}, {154,149,216}, {0,0,0}, {0,0,0}, {0,0,0}, {154,149,216}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
@@ -237,10 +236,10 @@ uint32_t layer_state_set_user(uint32_t state) {
   ergodox_right_led_3_off();
   switch (layer) {
     case 1:
-      ergodox_right_led_1_on();
+      ergodox_right_led_2_on();
       break;
     case 2:
-      ergodox_right_led_2_on();
+      ergodox_right_led_1_on();
       break;
     case 3:
       ergodox_right_led_3_on();
@@ -267,8 +266,6 @@ uint32_t layer_state_set_user(uint32_t state) {
   }
   return state;
 };
-
-
 #include "symshift.h"
 symshift_pair symshifts[] = {
 	SYMSHIFT(KC_Q, KC_1),
