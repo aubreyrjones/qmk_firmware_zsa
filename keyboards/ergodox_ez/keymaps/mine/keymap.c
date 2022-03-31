@@ -53,6 +53,7 @@ enum custom_keycodes {
   ST_MACRO_1,
   ST_MACRO_2,
   ST_MACRO_3,
+  NZ_MB_MIDDLE
 };
 
 enum tap_dance_codes {
@@ -106,7 +107,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_PSCREEN,     KC_F11,         LCTL(KC_S),                                     KC_TRANSPARENT, KC_TRANSPARENT, LCTL(KC_PGUP),  KC_TRANSPARENT, LCTL(KC_PGDOWN),KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, LCTL(KC_R),     LCTL(KC_T),     LCTL(KC_C),                                     KC_TRANSPARENT, KC_PGUP,        KC_HOME,        KC_UP,          KC_END,         KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_MS_BTN2,     KC_MS_BTN3,     KC_MS_BTN1,     KC_TRANSPARENT,                                                                 KC_PGDOWN,      KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, LSFT(KC_MS_BTN2),LSFT(KC_MS_BTN3),LSFT(KC_MS_BTN1),KC_TRANSPARENT, LCTL(KC_V),                                     KC_TRANSPARENT, KC_TRANSPARENT, LCTL(KC_LEFT),  KC_TRANSPARENT, LCTL(KC_RIGHT), KC_TRANSPARENT, KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_TRANSPARENT, LSFT(KC_MS_BTN2), NZ_MB_MIDDLE,LSFT(KC_MS_BTN1),KC_TRANSPARENT, LCTL(KC_V),                                     KC_TRANSPARENT, KC_TRANSPARENT, LCTL(KC_LEFT),  KC_TRANSPARENT, LCTL(KC_RIGHT), KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
                                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT,
@@ -192,38 +193,46 @@ void rgb_matrix_indicators_user(void) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {
-    case ST_MACRO_0:
-    if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_RALT) SS_DELAY(100) SS_TAP(X_M) SS_DELAY(100) SS_TAP(X_U));
+    switch (keycode) {
+        case ST_MACRO_0:
+            if (record->event.pressed) {
+                SEND_STRING(SS_TAP(X_RALT) SS_DELAY(100) SS_TAP(X_M) SS_DELAY(100) SS_TAP(X_U));
+            }
+            break;
+        case ST_MACRO_1:
+            if (record->event.pressed) {
+                SEND_STRING(SS_TAP(X_RALT) SS_DELAY(100) SS_TAP(X_O) SS_DELAY(100) SS_TAP(X_O));
+            }
+            break;
+        case ST_MACRO_2:
+            if (record->event.pressed) {
+                SEND_STRING(SS_TAP(X_MINUS) SS_DELAY(100) SS_LSFT(SS_TAP(X_DOT)));
+            }
+            break;
+        case ST_MACRO_3:
+            if (record->event.pressed) {
+                SEND_STRING(SS_TAP(X_SCOLON) SS_DELAY(100) SS_TAP(X_ENTER));
+            }
+            break;
+        case RGB_SLD:
+            if (record->event.pressed) {
+                rgblight_mode(1);
+            }
+            break;
+        case NZ_MB_MIDDLE:
+            if (record->event.pressed) {
+                register_code(KC_LSHIFT);
+                wait_ms(100);
+                register_code(KC_MS_BTN3);
+            } else {
+                unregister_code(KC_MS_BTN3);
+                unregister_code(KC_LSHIFT);
+            }
+            break;
 
+            return false;
     }
-    break;
-    case ST_MACRO_1:
-    if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_RALT) SS_DELAY(100) SS_TAP(X_O) SS_DELAY(100) SS_TAP(X_O));
-
-    }
-    break;
-    case ST_MACRO_2:
-    if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_MINUS) SS_DELAY(100) SS_LSFT(SS_TAP(X_DOT)));
-
-    }
-    break;
-    case ST_MACRO_3:
-    if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_SCOLON) SS_DELAY(100) SS_TAP(X_ENTER));
-
-    }
-    break;
-    case RGB_SLD:
-      if (record->event.pressed) {
-        rgblight_mode(1);
-      }
-      return false;
-  }
-  return true;
+    return true;
 }
 
 uint32_t layer_state_set_user(uint32_t state) {
