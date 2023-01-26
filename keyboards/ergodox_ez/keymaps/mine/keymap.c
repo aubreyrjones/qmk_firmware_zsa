@@ -54,7 +54,8 @@ enum custom_keycodes {
   ST_MACRO_1,
   ST_MACRO_2,
   ST_MACRO_3,
-  NZ_MB_MIDDLE
+  NZ_MB_MIDDLE,
+  ST_MACRO_4
 };
 
 enum tap_dance_codes {
@@ -96,9 +97,9 @@ enum tap_dance_codes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_ergodox_pretty(
     KC_ESCAPE,      KC_EXLM,        KC_AT,          KC_HASH,        KC_DLR,         KC_PERC,        KC_CAPSLOCK,                                    KC_TRANSPARENT, TD(DANCE_15),   TD(DANCE_16),   TD(DANCE_17),   ST_MACRO_0,     ST_MACRO_1,     LCTL(LSFT(KC_P)),
-    KC_TAB,         TD(DANCE_0),    TD(DANCE_1),    TD(DANCE_2),    TD(DANCE_3),    TD(DANCE_4),    KC_1,                                           ST_MACRO_2,     TD(DANCE_18),   TD(DANCE_19),   TD(DANCE_20),   KC_O,           TD(DANCE_21),   ST_MACRO_3,
+    KC_TAB,         TD(DANCE_0),    TD(DANCE_1),    TD(DANCE_2),    TD(DANCE_3),    TD(DANCE_4),    KC_1,                                           ST_MACRO_2,     TD(DANCE_18),   TD(DANCE_19),   TD(DANCE_20),   KC_O,           TD(DANCE_21),   KC_SCOLON,
     KC_LCTRL,       TD(DANCE_5),    TD(DANCE_6),    TD(DANCE_7),    TD(DANCE_8),    TD(DANCE_9),                                                                    TD(DANCE_22),   TD(DANCE_23),   TD(DANCE_24),   KC_L,           TD(DANCE_25),   KC_ENTER,
-    KC_LSHIFT,      TD(DANCE_10),   TD(DANCE_11),   TD(DANCE_12),   TD(DANCE_13),   TD(DANCE_14),   KC_0,                                           KC_TRANSPARENT, TD(DANCE_26),   TD(DANCE_27),   TD(DANCE_28),   KC_DOT,         TD(DANCE_29),   KC_RSHIFT,
+    KC_LSHIFT,      TD(DANCE_10),   TD(DANCE_11),   TD(DANCE_12),   TD(DANCE_13),   TD(DANCE_14),   KC_0,                                           ST_MACRO_4, TD(DANCE_26),   TD(DANCE_27),   TD(DANCE_28),   KC_DOT,         TD(DANCE_29),   KC_RSHIFT,
     TT(2),          KC_LGUI,        KC_LALT,        KC_TRANSPARENT, TT(1),                                                                                                          KC_UNDS,        KC_MINUS,       KC_SCOLON,      TD(DANCE_30),   TT(2),
                                                                                                     KC_ENTER,       TT(3),          KC_RALT,        TG(3),
                                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT,
@@ -213,6 +214,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case ST_MACRO_3:
             if (record->event.pressed) {
                 SEND_STRING(SS_TAP(X_SCOLON) SS_DELAY(100) SS_TAP(X_ENTER));
+            } 
+            break;
+        case ST_MACRO_4:
+            if (record->event.pressed) {
+              SEND_STRING(SS_TAP(X_EQUAL) SS_DELAY(100) SS_LSFT(SS_TAP(X_DOT)));
             }
             break;
         case RGB_SLD:
