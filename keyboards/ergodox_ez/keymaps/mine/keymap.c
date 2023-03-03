@@ -208,17 +208,24 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
         case ST_MACRO_2:
             if (record->event.pressed) {
-                SEND_STRING(SS_TAP(X_MINUS) SS_DELAY(100) SS_LSFT(SS_TAP(X_DOT)));
+                if (get_mods() & MOD_BIT(KC_LSHIFT)) {
+                  unregister_code(KC_LSHIFT); // I'm personally always going to use left shift in this case.
+                  SEND_STRING(SS_TAP(X_EQUAL) SS_DELAY(50) SS_LSFT(SS_TAP(X_DOT))); // fat arrow
+                  register_code(KC_LSHIFT);
+                }
+                else {
+                  SEND_STRING(SS_TAP(X_MINUS) SS_DELAY(50) SS_LSFT(SS_TAP(X_DOT))); // skinny arrow
+                }
             }
             break;
         case ST_MACRO_3:
             if (record->event.pressed) {
-                SEND_STRING(SS_TAP(X_SCOLON) SS_DELAY(100) SS_TAP(X_ENTER));
+                SEND_STRING(SS_TAP(X_SCOLON) SS_DELAY(100) SS_TAP(X_ENTER)); // semicolon newline
             } 
             break;
         case ST_MACRO_4:
             if (record->event.pressed) {
-              SEND_STRING(SS_TAP(X_EQUAL) SS_DELAY(100) SS_LSFT(SS_TAP(X_DOT)));
+              SEND_STRING(SS_LSFT(SS_TAP(X_SCOLON)) SS_DELAY(50) SS_LSFT(SS_TAP(X_SCOLON))); // scope colons
             }
             break;
         case RGB_SLD:
