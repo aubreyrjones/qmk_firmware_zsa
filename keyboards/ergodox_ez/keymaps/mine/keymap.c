@@ -106,14 +106,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                                     KC_BSPACE,      LCTL(KC_BSPACE),KC_DELETE,      TT(1),          KC_TRANSPARENT, KC_SPACE
   ),
   [1] = LAYOUT_ergodox_pretty(
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_PSCREEN,     KC_F11,         LCTL(KC_S),                                     KC_MS_BTN3,     KC_TRANSPARENT, LCTL(KC_PGUP),  KC_TRANSPARENT, LCTL(KC_PGDOWN),KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, LCTL(KC_R),     LCTL(KC_T),     LCTL(KC_C),                                     KC_TRANSPARENT, KC_PGUP,        KC_HOME,        KC_UP,          KC_END,         KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_MS_BTN2,     KC_MS_BTN3,     KC_MS_BTN1,     KC_TRANSPARENT,                                                                 KC_PGDOWN,      KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, LSFT(KC_MS_BTN2), NZ_MB_MIDDLE,LSFT(KC_MS_BTN1),KC_TRANSPARENT, LCTL(KC_V),                                     KC_TRANSPARENT, KC_TRANSPARENT, LCTL(KC_LEFT),  KC_TRANSPARENT, LCTL(KC_RIGHT), KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-                                                                                                    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_NO, KC_NO, KC_NO, KC_PSCREEN,     KC_F11,         LCTL(KC_S),                                     KC_MS_BTN3,     KC_NO, LCTL(KC_PGUP),  KC_TRANSPARENT, LCTL(KC_PGDOWN),KC_NO, KC_NO,
+    KC_TRANSPARENT, KC_NO, KC_NO, KC_NO, LCTL(KC_R),     LCTL(KC_T),     LCTL(KC_C),                                     KC_NO, KC_PGUP,        KC_HOME,        KC_UP,          KC_END,         KC_NO, KC_NO,
+    KC_TRANSPARENT, KC_NO, KC_MS_BTN2,     KC_MS_BTN3,     KC_MS_BTN1,     KC_NO,                                                                 KC_PGDOWN,      KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_NO, KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_NO, LSFT(KC_MS_BTN2), NZ_MB_MIDDLE,LSFT(KC_MS_BTN1),KC_NO, LCTL(KC_V),                                     KC_NO, KC_NO, LCTL(KC_LEFT),  KC_NO, LCTL(KC_RIGHT), KC_NO, KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_NO, KC_NO, KC_NO, KC_NO, KC_TRANSPARENT,
+                                                                                                    KC_NO, KC_TRANSPARENT, KC_NO, KC_TRANSPARENT,
                                                                                                                     LCTL(KC_X), KC_TRANSPARENT,
-                                                                                    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
+                                                                                    KC_TRANSPARENT, KC_NO, KC_NO, KC_TRANSPARENT, KC_NO, KC_TRANSPARENT
   ),
   [2] = LAYOUT_ergodox_pretty(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_SLASH,       KC_ASTR,        KC_MINUS,       KC_TRANSPARENT,

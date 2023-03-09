@@ -1,5 +1,9 @@
 {
     "files.associations": {
-        "symshift.h": "c"
+        "symshift.h": "c",
+        "quantum_keycodes.h": "c",
+        "keymap_german.h": "c",
+        "version.h": "c",
+        "keymap.h": "c"
     }
 }
